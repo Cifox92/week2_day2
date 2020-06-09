@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button>DETENER PROCESO ASÍNCRONO</button>
+
+    <script>
+
+
+
+        // // Base example
+        // console.log("Previo al proceso asíncrono")
+        // setTimeout(() => console.log("Proceso asíncrono finalizado"), 3500)
+        // console.log("Tras el proceso asíncrono")
+
+
+
+
+
+        // // Interaction example
+        // const timeoutId = setTimeout(() => console.log("Proceso asíncrono finalizado"), 3500)
+
+        // document.querySelector('button').onclick = () => {
+        //     console.log(`El setTimeout con id ${timeoutId} ha sido interrumpido`)
+        //     clearTimeout(timeoutId)
+        // }
+
+
+
+
+
+
+
+        // Recursive example
+        let counter = 1, timeoutId
+
+        const callbackFunction = function () {
+
+            console.log('La función recursiva se ha ejecutado', counter, 'vece/s')
+
+            timeoutId = setTimeout(callbackFunction, 1000)
+
+            // if (counter > 10) {
+            //     clearTimeout(timeoutId)
+            // } else {
+            //     counter++
+            // }
+
+            counter > 10 ? clearTimeout(timeoutId) : counter++
+        }
+
+        callbackFunction()
+
+
+
+    </script>
+
+</body>
+
+</html>

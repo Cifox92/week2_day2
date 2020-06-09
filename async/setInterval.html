@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3>¿Qué hora es?</h3>
+    <p>Son las <span>...</span></p>
+
+    <hr>
+
+    <h5>El contador se ha ejecutado <span>0</span> veces</h5>
+    <button>DETENER INTERVALO</button>
+
+    <script>
+
+        // // Base example
+        // console.log("Previo al proceso asíncrono")
+        // setInterval(() => console.log("Intervalo ejecutado"), 1000)
+        // console.log("Tras el proceso asíncrono")
+
+
+
+
+        const printDate = () => {
+            const now = new Date()
+            const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' }
+            console.log('El orden es alfabético:', options)
+            const localDateString = now.toLocaleString('es-ES', options)
+
+            document.querySelector('p span').textContent = localDateString
+        }
+
+        setInterval(printDate, 1000)
+
+
+
+
+
+        let counter = 0
+
+        const updateCounter = () => {
+            counter++
+            document.querySelector('h5 span').textContent = counter
+        }
+
+        const intervalId = setInterval(updateCounter, 500)
+
+        document.querySelector('button').onclick = () => clearInterval(intervalId)
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
